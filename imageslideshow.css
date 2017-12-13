@@ -1,0 +1,6 @@
+img.desaturate {
+	-webkit-filter: grayscale(1);
+	-webkit-filter: grayscale(100%);
+	filter: gray;
+	filter: grayscale(100%);
+}
