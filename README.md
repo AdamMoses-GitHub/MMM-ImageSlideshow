@@ -1,5 +1,5 @@
 # Module: Image Slideshow
-The `MMM-ImageSlideshow` module is designed to, without any API keys, show movies that are ranking at the box office, opening this week, or coming soon. For each movies the Rotten Tomato meter score is shown (if available) as well as release date or box office gross.
+The `MMM-ImageSlideshow` module is designed to display images, one at a time on a fixed interval, from one or many directories. These images can be shown in order or at random, one directory at a time or all at time. The image heights and widths can be fixed, and the images can be made to be shown in grayscale.
 
 ## Dependencies / Requirements
 
