@@ -52,7 +52,7 @@ Module.register("MMM-ImageSlideshow", {
             // ask helper function to get the image list
             this.sendSocketNotification('IMAGESLIDESHOW_REGISTER_CONFIG', this.config);
             // set the timer schedule to the slideshow speed
-            self = this;
+            var self = this;
             setInterval(function() {
                 self.updateDom(0);
                 }, this.config.slideshowSpeed);
