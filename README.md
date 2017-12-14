@@ -11,6 +11,22 @@ This module will take in a list of directory paths, one or more, containing imag
 
 Extra configurations include setting the amount of time an image is shown for, rendering the images in grayscale, selecting which file extensions are valid, and using a fixed image height and/or width.
 
+
+## Using the module
+
+To use this module, add it to the modules array in the `config/config.js` file:
+````javascript
+modules: [
+	{
+		module: 'MMM-ImageSlideshow',
+		position: 'bottom_left',
+		config: {
+			imagePaths: ['modules/MMM-ImageSlideshow/example1']
+		}
+	}	
+]
+````
+
 ## Configuration options
 
 The following properties can be configured:
