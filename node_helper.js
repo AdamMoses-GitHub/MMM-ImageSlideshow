@@ -38,9 +38,10 @@ module.exports = NodeHelper.create({
     sortByFilename: function (a, b) {
         aL = a.filename.toLowerCase();
         bL = b.filename.toLowerCase();
-        if (a < b) return 1;
-        if (a > b) return -1;
-        return 0;
+        if (aL > bL) 
+			return 1;
+		else 
+			return -1;
     },
     // checks there's a valid image file extension
     checkValidImageFileExtension: function(filename, extensions) {
@@ -77,7 +78,7 @@ module.exports = NodeHelper.create({
                         currentImageList.push(currentImage);
                 }
                 // if not set to combine all paths, do random or alphabetical sort
-                if (config.treatAllPathsAsOne) {
+                if (!config.treatAllPathsAsOne) {
                     if (config.randomizeImageOrder)
                         currentImageList = this.shuffleArray(currentImageList);
                     else
@@ -88,7 +89,7 @@ module.exports = NodeHelper.create({
             }
         }
         // if set to combine all paths, sort all images randomly or alphabetically by filename
-        if (!config.treatAllPathsAsOne) {
+        if (config.treatAllPathsAsOne) {
             if (config.randomizeImageOrder)
                 imageList = this.shuffleArray(imageList);
             else
@@ -96,8 +97,9 @@ module.exports = NodeHelper.create({
         }
         // create a file image list combining paths and filenames
         var imageListComplete = [];
-        for (var index = 0; index < imageList.length; index++)
+        for (var index = 0; index < imageList.length; index++) {
             imageListComplete.push(imageList[index].path + '/' + imageList[index].filename);
+		}
         // return final list
         return imageListComplete;
     },
