@@ -56,6 +56,14 @@ The following properties can be configured:
 			</td>
 		</tr>
 		<tr>
+			<td><code>delayUntilRestart</code></td>
+			<td>Integer value, the length of time to restart the slideshow after the last image has been shown, in milliseconds. The module will go blank will waits to restart.<br>
+				<br><b>Example:</b> <code>6000</code>
+				<br><b>Default value:</b> <code>0</code>
+				<br>This value is <b>OPTIONAL</b>
+			</td>
+		</tr>		
+		<tr>
 			<td><code>fixedImageWidth</code></td>
 			<td>Integer value, sets a fixed pixel width for all the images to be shown. If set to 0, the image's actual width is used.<br>
 				<br><b>Example:</b> <code>250</code>
