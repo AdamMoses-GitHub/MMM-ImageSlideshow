@@ -57,7 +57,7 @@ The following properties can be configured:
 		</tr>
 		<tr>
 			<td><code>delayUntilRestart</code></td>
-			<td>Integer value, the length of time to restart the slideshow after the last image has been shown, in milliseconds. The module will go blank will waits to restart.<br>
+			<td>Integer value, the length of time to restart the slideshow after the last image has been shown, in milliseconds. The module will go blank will waits to restart. This value defaults to zero, meaning no delay until restarting.<br>
 				<br><b>Example:</b> <code>6000</code>
 				<br><b>Default value:</b> <code>0</code>
 				<br>This value is <b>OPTIONAL</b>
