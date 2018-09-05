@@ -126,7 +126,7 @@ Module.register("MMM-ImageSlideshow", {
 					}
 					// if not reset index
 					else
-						this.imageIndex = -1;
+						this.imageIndex = 0;
 				}
 				if (showSomething) {
 					// create the image dom bit
