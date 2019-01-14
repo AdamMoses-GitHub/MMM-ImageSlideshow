@@ -28,6 +28,8 @@ Module.register("MMM-ImageSlideshow", {
         // if true combine all images in all the paths
         // if false each path with be viewed seperately in the order listed
         treatAllPathsAsOne: false,
+	// if true reload the image list after each iteration
+	reloadImageList: false,
         // if true, all images will be made grayscale, otherwise as they are
         makeImagesGrayscale: false,
         // list of valid file extensions, seperated by commas
@@ -52,11 +54,13 @@ Module.register("MMM-ImageSlideshow", {
             // set beginning image index to -1, as it will auto increment on start
             this.imageIndex = -1;
             // ask helper function to get the image list
+            console.log("MMM-ImageSlideshow sending socket notification");
             this.sendSocketNotification('IMAGESLIDESHOW_REGISTER_CONFIG', this.config);
 			// do one update time to clear the html
 			this.updateDom();
 			// set a blank timer
 			this.interval = null;
+			this.loaded = false;
         }
 	},
 	// Define required scripts.
@@ -66,16 +70,30 @@ Module.register("MMM-ImageSlideshow", {
 	},    
 	// the socket handler
 	socketNotificationReceived: function(notification, payload) {
+                console.log("MMM-ImageSlideshow recieved a socket notification: " + notification);
 		// if an update was received
 		if (notification === "IMAGESLIDESHOW_FILELIST") {
 			// check this is for this module based on the woeid
 			if (payload.identifier === this.identifier)
 			{
+				// extract new list
+				var newImageList = payload.imageList;
+				// check if anything has changed. return if not.
+				if (newImageList.length == this.imageList.length) {
+					var unchanged = true;
+					for (var i = 0 ; i < newImageList.length; i++) {
+						unchanged = this.imageList[i] == newImageList[i];
+						if (!unchanged)
+							break;
+					}
+					if (unchanged)
+						return;
+				}
 				// set the image list
 				this.imageList = payload.imageList;
                 // if image list actually contains images
                 // set loaded flag to true and update dom
-                if (this.imageList.length > 0) {
+                if (this.imageList.length > 0 && !this.loaded) {
                     this.loaded = true;
                     this.updateDom();
 					// set the timer schedule to the slideshow speed			
@@ -113,6 +131,11 @@ Module.register("MMM-ImageSlideshow", {
 				var showSomething = true;
                 // if exceeded the size of the list, go back to zero
                 if (this.imageIndex == this.imageList.length) {
+                                       // console.log("MMM-ImageSlideshow sending reload request");
+				       // reload image list at end of iteration, if config option set
+                                       if (this.config.reloadImageList) 
+                                           this.sendSocketNotification('IMAGESLIDESHOW_RELOAD_FILELIST', this.config);
+
 					// if delay after last image, set to wait
 					if (this.config.delayUntilRestart > 0) {
 						this.imageIndex = -2;

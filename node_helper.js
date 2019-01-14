@@ -21,6 +21,7 @@ module.exports = NodeHelper.create({
     // subclass start method, clears the initial config array
     start: function() {
         this.moduleConfigs = [];
+        console.log("Starting Node Helper for: " + this.name);
     },
     // shuffles an array at random and returns it
     shuffleArray: function(array) {
@@ -54,6 +55,7 @@ module.exports = NodeHelper.create({
     },
     // gathers the image list
     gatherImageList: function(config) {
+        //console.log("MMM-ImageSlideshow loading image list");
         var self = this;
         // create an empty main image list
         var imageList = [];
@@ -105,6 +107,7 @@ module.exports = NodeHelper.create({
     },
     // subclass socketNotificationReceived, received notification from module
     socketNotificationReceived: function(notification, payload) {
+        //console.log("MMM-ImageSlideshow node_helper received notification");
         if (notification === "IMAGESLIDESHOW_REGISTER_CONFIG") {
             // add the current config to an array of all configs used by the helper
             this.moduleConfigs.push(payload);
@@ -117,7 +120,15 @@ module.exports = NodeHelper.create({
             // send the image list back
             self.sendSocketNotification('IMAGESLIDESHOW_FILELIST', returnPayload );
         }
-    },     
+        else if (notification === "IMAGESLIDESHOW_RELOAD_FILELIST") {
+            // gather Images according to latest config. The config did not change, but the content of the specified folders might have
+            var imageList = this.gatherImageList(this.moduleConfigs[this.moduleConfigs.length - 1]);
+            // build the return payload
+            var returnPayload = { identifier: payload.identifier, imageList: imageList };
+            // send the image list back
+            this.sendSocketNotification('IMAGESLIDESHOW_FILELIST', returnPayload );
+        }
+    },
 });
 
 //------------ end -------------
