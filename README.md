@@ -96,6 +96,14 @@ The following properties can be configured:
 			</td>
 		</tr>
         <tr>
+			<td><code>reloadImageList</code></td>
+			<td>Boolean value, if true added/removed images in <code>imagePaths</code> will be added/removed from slide show after each iteration.<br>
+				<br><b>Example:</b> <code>true</code>
+				<br><b>Default value:</b> <code>false</code>
+				<br>This value is <b>OPTIONAL</b>
+			</td>
+		</tr>
+        <tr>
 			<td><code>makeImagesGrayscale</code></td>
 			<td>Boolean value, if true images will be rendered in grayscale (i.e black and white) instead of color. If false they will be rendered as just they are without change.<br>
 				<br><b>Example:</b> <code>true</code>
