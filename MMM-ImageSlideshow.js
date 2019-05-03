@@ -145,7 +145,7 @@ Module.register("MMM-ImageSlideshow", {
 					if (styleString != '')
 						image.style = styleString;
 					// set the image location
-					image.src = this.imageList[this.imageIndex];
+					image.src = encodeURI(this.imageList[this.imageIndex]);
 					// ad the image to the dom
 					wrapper.appendChild(image);					
 				}
