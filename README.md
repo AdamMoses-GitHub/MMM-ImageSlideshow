@@ -111,5 +111,13 @@ The following properties can be configured:
 				<br>This value is <b>OPTIONAL</b>
 			</td>
 		</tr>         
+		<tr>
+			<td><code>opacity</code></td>
+			<td>Opacity of the image. Ranged 0.0 to 1.0.<br>
+				<br><b>Example:</b> <code>0.5</code>
+				<br><b>Default value:</b> <code>1.0</code>
+				<br>This value is <b>OPTIONAL</b>
+			</td>
+		</tr>         
     </tbody>
 </table>

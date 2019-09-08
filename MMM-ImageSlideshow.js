@@ -34,6 +34,8 @@ Module.register("MMM-ImageSlideshow", {
         validImageFileExtensions: 'bmp,jpg,gif,png',
 		// a delay timer after all images have been shown, to wait to restart (in ms)
 		delayUntilRestart: 0,
+		//opacity of the image
+		opacity: 1.0
 	},
     // load function
 	start: function () {
@@ -141,6 +143,9 @@ Module.register("MMM-ImageSlideshow", {
 						styleString += 'width:' + this.config.fixedImageWidth + 'px;';
 					if (this.config.fixedImageHeight != 0)
 						styleString += 'height:' + this.config.fixedImageHeight + 'px;';
+					// if opacity of image changed
+					if(this.config.opacity != 1.0)
+					styleString += 'opacity:' + this.config.opacity;
 					// if style string has antyhing, set it
 					if (styleString != '')
 						image.style = styleString;
