@@ -21,7 +21,7 @@ modules: [
 		module: 'MMM-ImageSlideshow',
 		position: 'bottom_left',
 		config: {
-			imagePaths: ['modules/MMM-ImageSlideshow/example1']
+			imagePaths: ['modules/MMM-ImageSlideshow/exampleImages']
 		}
 	}	
 ]
