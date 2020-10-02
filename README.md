@@ -62,7 +62,15 @@ The following properties can be configured:
 				<br><b>Default value:</b> <code>0</code>
 				<br>This value is <b>OPTIONAL</b>
 			</td>
-		</tr>		
+		</tr>
+		<tr>
+			<td><code>updateFileListBeforeRestart</code></td>
+			<td>Boolean value, Should the file list be recreated before the slideshow restarts?<br>
+				<br><b>Example:</b> <code>true</code>
+				<br><b>Default value:</b> <code>false</code>
+				<br>This value is <b>OPTIONAL</b>
+			</td>
+		</tr>
 		<tr>
 			<td><code>fixedImageWidth</code></td>
 			<td>Integer value, sets a fixed pixel width for all the images to be shown. If set to 0, the image's actual width is used.<br>
@@ -110,6 +118,6 @@ The following properties can be configured:
 				<br><b>Default value:</b> <code>'bmp,jpg,gif,png'</code>
 				<br>This value is <b>OPTIONAL</b>
 			</td>
-		</tr>         
+		</tr>
     </tbody>
 </table>

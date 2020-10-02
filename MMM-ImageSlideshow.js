@@ -35,7 +35,7 @@ Module.register("MMM-ImageSlideshow", {
 		// a delay timer after all images have been shown, to wait to restart (in ms)
 		delayUntilRestart: 0,
 		// update the file list each time all images had been displayed
-		updateFileBeforeRestart: false,
+		updateFileListBeforeRestart: false,
 	},
     // load function
 	start: function () {
@@ -118,7 +118,7 @@ Module.register("MMM-ImageSlideshow", {
 				var showSomething = true;
                 // if exceeded the size of the list, go back to zero
                 if (this.imageIndex == this.imageList.length) {
-					if (this.config.updateFileBeforeRestart){
+					if (this.config.updateFileListBeforeRestart){
 						this.sendSocketNotification('IMAGESLIDESHOW_UPDATE_FILE_LIST', this.config);
 					}
 					// if delay after last image, set to wait
