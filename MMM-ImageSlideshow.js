@@ -34,6 +34,8 @@ Module.register("MMM-ImageSlideshow", {
         validImageFileExtensions: 'bmp,jpg,gif,png',
 		// a delay timer after all images have been shown, to wait to restart (in ms)
 		delayUntilRestart: 0,
+		// update the file list each time all images had been displayed
+		updateFileBeforeRestart: false,
 	},
     // load function
 	start: function () {
@@ -83,7 +85,10 @@ Module.register("MMM-ImageSlideshow", {
 					this.interval = setInterval(function() {
 						self.updateDom();
 						}, this.config.slideshowSpeed);					
-                }
+                } else {
+					this.loaded = false;
+					this.updateDom();
+				}
 			}
 		}
     },    
@@ -113,6 +118,9 @@ Module.register("MMM-ImageSlideshow", {
 				var showSomething = true;
                 // if exceeded the size of the list, go back to zero
                 if (this.imageIndex == this.imageList.length) {
+					if (this.config.updateFileBeforeRestart){
+						this.sendSocketNotification('IMAGESLIDESHOW_UPDATE_FILE_LIST', this.config);
+					}
 					// if delay after last image, set to wait
 					if (this.config.delayUntilRestart > 0) {
 						this.imageIndex = -2;
@@ -122,11 +130,12 @@ Module.register("MMM-ImageSlideshow", {
 						var self = this;
 						this.interval = setInterval(function() {
 							self.updateDom(0);
-							}, this.config.delayUntilRestart);									
+							}, this.config.delayUntilRestart);
 					}
 					// if not reset index
-					else
+					else {
 						this.imageIndex = 0;
+					}
 				}
 				if (showSomething) {
 					// create the image dom bit

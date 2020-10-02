@@ -20,7 +20,7 @@ var FileSystemImageSlideshow = require("fs");
 module.exports = NodeHelper.create({
     // subclass start method, clears the initial config array
     start: function() {
-        this.moduleConfigs = [];
+        this.started = false;
     },
     // shuffles an array at random and returns it
     shuffleArray: function(array) {
@@ -105,12 +105,17 @@ module.exports = NodeHelper.create({
     },
     // subclass socketNotificationReceived, received notification from module
     socketNotificationReceived: function(notification, payload) {
+        // this to self
+        var self = this;
         if (notification === "IMAGESLIDESHOW_REGISTER_CONFIG") {
-            // add the current config to an array of all configs used by the helper
-            this.moduleConfigs.push(payload);
-            // this to self
-            var self = this;
             // get the image list
+            var imageList = this.gatherImageList(payload);
+            // build the return payload
+            var returnPayload = { identifier: payload.identifier, imageList: imageList };
+            // send the image list back
+            self.sendSocketNotification('IMAGESLIDESHOW_FILELIST', returnPayload );
+            self.started = true
+        } else if ((notification === "IMAGESLIDESHOW_UPDATE_FILE_LIST") && self.started){
             var imageList = this.gatherImageList(payload);
             // build the return payload
             var returnPayload = { identifier: payload.identifier, imageList: imageList };
