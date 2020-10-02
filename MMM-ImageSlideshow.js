@@ -61,6 +61,17 @@ Module.register("MMM-ImageSlideshow", {
 			this.interval = null;
         }
 	},
+	suspend: function() {
+		const self = this
+		clearInterval(self.interval);
+	  },
+	
+	resume: function() {
+		const self = this
+		this.interval = setInterval(function() {
+			self.updateDom(0);
+			}, this.config.slideshowSpeed);
+	},
 	// Define required scripts.
 	getStyles: function() {
         // the css contains the make grayscale code
@@ -111,7 +122,7 @@ Module.register("MMM-ImageSlideshow", {
 					this.interval = setInterval(function() {
 						self.updateDom(0);
 						}, this.config.slideshowSpeed);						
-				}				
+				}		
                 // iterate the image list index
                 this.imageIndex += 1;
 				// set flag to show stuff
