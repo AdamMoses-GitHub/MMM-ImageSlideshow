@@ -70,7 +70,8 @@ Module.register("MMM-ImageSlideshow", {
 		const self = this
 		this.interval = setInterval(function() {
 			self.updateDom(0);
-			}, this.config.slideshowSpeed);
+		}, this.config.slideshowSpeed);
+		self.updateDom(0)
 	},
 	// Define required scripts.
 	getStyles: function() {
