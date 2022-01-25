@@ -1,0 +1,9 @@
+Moin!
+die Bilder 1-14 werden aus dem Script von live-Cams 
+aus dem Netz geladen alle 15min (wenn im cronjob so engestellt).
+
+Um eigene Bilder anzeigen zu lassen,
+sollten cronologisch ab 15 "Fotos_x.png" benannt werden.
+Bitte nur PNG Bilder verwenden.
+Das Script prüft automatisch die Anzahl der Bilder und generiert jedes mit einen zufälligen Tex aus Fortune.
+Diese werden dann zum anschauen für den Spiegel mit dem Script "MMM-ImageSlideshow" im Ordner "exampleImages" gespeichert.
