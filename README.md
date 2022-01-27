@@ -117,7 +117,11 @@ The following properties can be configured:
 # MMM-ImageSlideshow-addon
 
 Fortune-Sprüche auf eigene oder auf aktuelle Webcam Bildern gelegt mit Ramen für den Maggic-Mirror.
-fortune-de = https://de.wikipedia.org/wiki/Fortune_(Computerprogramm)
+
+fortune-de:
+
+https://de.wikipedia.org/wiki/Fortune_(Computerprogramm)
+
 z.B. für die Modulanwendung MMM-ImageSlideshow
 Das script fortune_Image.sh,
 
