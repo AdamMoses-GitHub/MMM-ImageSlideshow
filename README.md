@@ -113,14 +113,19 @@ The following properties can be configured:
 		</tr>         
     </tbody>
 </table>
+
 # MMM-ImageSlideshow-addon
+
 Fortune-Sprüche auf eigene oder auf aktuelle Webcam Bildern gelegt mit Ramen für den Maggic-Mirror.
 fortune-de = https://de.wikipedia.org/wiki/Fortune_(Computerprogramm)
 z.B. für die Modulanwendung MMM-ImageSlideshow
 Das script fortune_Image.sh,
+
 den Ordner exampleImages_null (alle zukünftigen Bilder müssen chronologisch Foto_15.png bis z.B Foto_888.png)
 
-<img src="https://github.com/eyedat/MMM-ImageSlideshow-addon/blob/main/Fortune-script_eye.gif?raw=true" alt="">CAM_downloader-Fortune-script_Beispiel.gif
+# Beispiel:
+
+<img src="https://github.com/eyedat/MMM-ImageSlideshow-addon/blob/main/Fortune-script_eye.gif?raw=true" alt="">
 
 
 /home/pi/MagicMirror/modules/MMM-ImageSlideshow/fotune.sh
