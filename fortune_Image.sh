@@ -107,8 +107,8 @@ Grosse2=80 #26
 # Aldi Kamera "Das Modell Maginon IPC-100AC" Bild import start ***********************************************************************************************************************************************
 
 BENUTZER="admin" 
-PASSWORT="text"
-CAMIP="192.168.1.3" # IP der Maginon IPC-100AC
+PASSWORT="asswort"
+CAMIP="192.168.1.xx" # IP der Maginon IPC-100AC
 
 # Bild holden und conventieren in png
 
@@ -265,5 +265,7 @@ echo "convert "$zaehler".png"
 
 zaehler=`expr $zaehler + 1`    # +2 wäre jeder zweiter
 done
-echo "---Fertig!---"
+echo "---Fertig!--- offne neues Script ..."
+sh erzeuge_webcam_bilder_mit_zeitstempel.sh # das script sollte unter den Minuten im cronjob bleiben! (unter 15min)
+echo "---Fertig! mit GIF gespeichert unter exampleImages/Animation_1.gif ---"
 exit 0
