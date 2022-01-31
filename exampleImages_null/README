@@ -1,9 +1,10 @@
 Moin!
 die Bilder 1-14 werden aus dem Script von live-Cams 
-aus dem Netz geladen alle 15min (wenn im cronjob so engestellt).
+aus dem Netz geladen, alle 15 Minuten (wenn im cronjob so engestellt).
 
 Um eigene Bilder anzeigen zu lassen,
-sollten cronologisch ab 15 "Fotos_x.png" benannt werden.
+sollten chronologisch ab 15 "Fotos_x.png" benannt werden.
+Die Aufgabe des Umbenennes kann mit diesem Script "umbenennen_TOOL_von_XY_png_zu_Foto_Zahl_png.sh" ausgeführt werden.
 Bitte nur PNG Bilder verwenden.
-Das Script prüft automatisch die Anzahl der Bilder und generiert jedes mit einen zufälligen Tex aus Fortune.
+Das Script prüft automatisch die Anzahl der Bilder und generiert jedes mit einen zufälligen Text aus Fortune.
 Diese werden dann zum anschauen für den Spiegel mit dem Script "MMM-ImageSlideshow" im Ordner "exampleImages" gespeichert.
